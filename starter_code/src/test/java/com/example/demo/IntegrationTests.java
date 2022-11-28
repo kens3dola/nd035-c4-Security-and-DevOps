@@ -45,17 +45,14 @@ public class IntegrationTests {
         createUserRequest.setPassword("a");
         User user = userController.createUser(createUserRequest).getBody();
         assertThat(user).isNotNull();
-        assertThat(user.getId()).isEqualTo(1L);
         assertThat(user.getCart()).isNotNull();
 
         user = userController.findByUserName("a").getBody();
         assertThat(user).isNotNull();
-        assertThat(user.getId()).isEqualTo(1L);
         assertThat(user.getCart()).isNotNull();
 
-        user = userController.findById(1L).getBody();
+        user = userController.findById(user.getId()).getBody();
         assertThat(user).isNotNull();
-        assertThat(user.getId()).isEqualTo(1L);
         assertThat(user.getCart()).isNotNull();
 
         //get Item
