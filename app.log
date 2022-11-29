@@ -1,0 +1,43 @@
+2022-11-29 22:10:01,968 INFO com.example.demo.SareetaApplication [main] Starting SareetaApplication on DESKTOP-1P2VMM4 with PID 344 (started by Dang Cap in C:\Users\Dang Cap\Documents\Udacity\nd035-c4-Security-and-DevOps)
+2022-11-29 22:10:01,970 DEBUG com.example.demo.SareetaApplication [main] Running with Spring Boot v2.1.5.RELEASE, Spring v5.1.7.RELEASE
+2022-11-29 22:10:01,971 INFO com.example.demo.SareetaApplication [main] No active profile set, falling back to default profiles: default
+2022-11-29 22:10:02,861 INFO org.apache.catalina.core.StandardService [main] Starting service [Tomcat]
+2022-11-29 22:10:02,861 INFO org.apache.catalina.core.StandardEngine [main] Starting Servlet engine: [Apache Tomcat/9.0.19]
+2022-11-29 22:10:02,940 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [main] Initializing Spring embedded WebApplicationContext
+2022-11-29 22:10:03,051 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Starting...
+2022-11-29 22:10:03,158 INFO com.zaxxer.hikari.HikariDataSource [main] HikariPool-1 - Start completed.
+2022-11-29 22:10:03,194 INFO org.hibernate.jpa.internal.util.LogHelper [main] HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2022-11-29 22:10:03,234 INFO org.hibernate.Version [main] HHH000412: Hibernate Core {5.3.10.Final}
+2022-11-29 22:10:03,235 INFO org.hibernate.cfg.Environment [main] HHH000206: hibernate.properties not found
+2022-11-29 22:10:03,333 INFO org.hibernate.annotations.common.Version [main] HCANN000001: Hibernate Commons Annotations {5.0.4.Final}
+2022-11-29 22:10:03,433 INFO org.hibernate.dialect.Dialect [main] HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2022-11-29 22:10:04,606 INFO com.example.demo.SareetaApplication [main] Started SareetaApplication in 2.882 seconds (JVM running for 3.432)
+2022-11-29 22:10:09,203 INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] [http-nio-8080-exec-1] Initializing Spring DispatcherServlet 'dispatcherServlet'
+2022-11-29 22:10:09,279 DEBUG com.example.demo.controllers.UserController [http-nio-8080-exec-1] Calling createUser with body: CreateUserRequest(username=a, password=a)
+2022-11-29 22:10:09,390 DEBUG com.example.demo.controllers.UserController [http-nio-8080-exec-1] Successfully created user
+2022-11-29 22:10:11,763 DEBUG com.example.demo.security.JWTAuthenticationFilter [http-nio-8080-exec-3] Request is to process authentication
+2022-11-29 22:10:11,771 DEBUG com.example.demo.security.JWTAuthenticationFilter [http-nio-8080-exec-3] Calling attemptAuthentication with user: a
+2022-11-29 22:10:11,843 DEBUG com.example.demo.security.UserDetailsService [http-nio-8080-exec-3] Calling loadUserByUsername with username: a
+2022-11-29 22:10:11,854 INFO org.hibernate.hql.internal.QueryTranslatorFactoryInitiator [http-nio-8080-exec-3] HHH000397: Using ASTQueryTranslatorFactory
+2022-11-29 22:10:12,054 DEBUG com.example.demo.security.JWTAuthenticationFilter [http-nio-8080-exec-3] Successfully authenticated
+2022-11-29 22:10:21,297 DEBUG com.example.demo.controllers.ItemController [http-nio-8080-exec-4] Calling getItemById with id: 1
+2022-11-29 22:10:26,475 DEBUG com.example.demo.controllers.UserController [http-nio-8080-exec-7] Calling findByUserName with username: a
+2022-11-29 22:10:28,312 DEBUG com.example.demo.controllers.UserController [http-nio-8080-exec-8] Calling findByUserName with username: b
+2022-11-29 22:10:33,463 DEBUG com.example.demo.controllers.UserController [http-nio-8080-exec-6] Calling findById with id: 1
+2022-11-29 22:10:41,047 DEBUG com.example.demo.controllers.CartController [http-nio-8080-exec-9] Calling addToCart with body: ModifyCartRequest(username=a, itemId=2, quantity=3)
+2022-11-29 22:10:41,069 DEBUG com.example.demo.controllers.CartController [http-nio-8080-exec-9] Successfully added item to cart
+2022-11-29 22:10:48,154 DEBUG com.example.demo.controllers.CartController [http-nio-8080-exec-10] Calling addToCart with body: ModifyCartRequest(username=a, itemId=1, quantity=5)
+2022-11-29 22:10:48,162 DEBUG com.example.demo.controllers.CartController [http-nio-8080-exec-10] Successfully added item to cart
+2022-11-29 22:10:56,606 DEBUG com.example.demo.controllers.CartController [http-nio-8080-exec-2] Calling removeFromcart with body: ModifyCartRequest(username=a, itemId=2, quantity=1)
+2022-11-29 22:10:56,614 DEBUG com.example.demo.controllers.CartController [http-nio-8080-exec-2] Successfully removed item from cart
+2022-11-29 22:11:04,373 DEBUG com.example.demo.controllers.CartController [http-nio-8080-exec-1] Calling removeFromcart with body: ModifyCartRequest(username=a, itemId=1, quantity=2)
+2022-11-29 22:11:04,378 DEBUG com.example.demo.controllers.CartController [http-nio-8080-exec-1] Successfully removed item from cart
+2022-11-29 22:11:11,471 DEBUG com.example.demo.controllers.OrderController [http-nio-8080-exec-3] Calling submit order with username: b
+2022-11-29 22:11:11,472 ERROR com.example.demo.controllers.OrderController [http-nio-8080-exec-3] Error - user not found: b
+2022-11-29 22:11:14,850 DEBUG com.example.demo.controllers.OrderController [http-nio-8080-exec-5] Calling submit order with username: a
+2022-11-29 22:11:14,857 DEBUG com.example.demo.controllers.OrderController [http-nio-8080-exec-5] Successfully submitted order
+2022-11-29 22:11:33,979 DEBUG com.example.demo.controllers.OrderController [http-nio-8080-exec-7] Calling getOrdersForUser with username: a
+2022-11-29 22:12:04,621 INFO com.zaxxer.hikari.HikariDataSource [Thread-3] HikariPool-1 - Shutdown initiated...
+2022-11-29 22:12:04,623 INFO com.zaxxer.hikari.HikariDataSource [Thread-3] HikariPool-1 - Shutdown completed.

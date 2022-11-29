@@ -17,9 +17,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.ToString;
 
 @Entity
 @Table(name = "user_order")
+@ToString
 public class UserOrder {
 
 	@Id

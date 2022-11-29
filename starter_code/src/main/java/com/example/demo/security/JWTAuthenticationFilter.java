@@ -4,6 +4,7 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.example.demo.model.persistence.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -18,6 +19,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 
+@Log4j2
 public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
     public static final int EXPIRITION_TIME = 36000000;
@@ -32,6 +34,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException {
         try {
             User user = new ObjectMapper().readValue(request.getInputStream(), User.class);
+            log.debug("Calling attemptAuthentication with user: {}", user.getUsername());
             return authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(user.getUsername(), user.getPassword(), new ArrayList<>()));
         } catch (IOException e) {
@@ -45,5 +48,6 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                 .withExpiresAt(new Date(System.currentTimeMillis() + EXPIRITION_TIME))
                 .sign(Algorithm.HMAC512(SECRET.getBytes()));
         response.addHeader("Authorization", "Bearer " + token);
+        log.debug("Successfully authenticated");
     }
 }

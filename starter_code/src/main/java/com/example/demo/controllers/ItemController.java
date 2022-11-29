@@ -2,6 +2,7 @@ package com.example.demo.controllers;
 
 import java.util.List;
 
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +15,7 @@ import com.example.demo.model.persistence.repositories.ItemRepository;
 
 @RestController
 @RequestMapping("/api/item")
+@Log4j2
 public class ItemController {
 
 	@Autowired
@@ -26,11 +28,13 @@ public class ItemController {
 	
 	@GetMapping("/{id}")
 	public ResponseEntity<Item> getItemById(@PathVariable Long id) {
+		log.debug("Calling getItemById with id: {}", id);
 		return ResponseEntity.of(itemRepository.findById(id));
 	}
 	
 	@GetMapping("/name/{name}")
 	public ResponseEntity<List<Item>> getItemsByName(@PathVariable String name) {
+		log.debug("Calling getItemsByName with name: {}", name);
 		List<Item> items = itemRepository.findByName(name);
 		return items == null || items.isEmpty() ? ResponseEntity.notFound().build()
 				: ResponseEntity.ok(items);
